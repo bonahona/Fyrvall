@@ -113,6 +113,24 @@ class FormHelper
             $options = array();
         }
 
+
+        if(isset($options['value'])){
+            $value = $options['value'];
+        }else{
+            $value = $this->ParseValue($name);
+        }
+        var_dump(array($name, $value));
+        unset($options['value']);
+
+        if($value == 1 || $value == true){
+            if(!isset($options['attributes'])){
+                $options['attributes'] = array();
+            }
+
+            $options['attributes']['checked'] = $value;
+        }
+
+        var_dump($options);
         $options['type'] = 'checkbox';
         return $this->Input($name, $options);
     }

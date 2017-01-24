@@ -49,6 +49,8 @@ class PageController extends BaseController
 
     public function Edit($id = 0)
     {
+        $this->Title = 'Edit page';
+        
         if($id == null || $id == 0){
             return $this->HttpNotFound();
         }
@@ -57,6 +59,18 @@ class PageController extends BaseController
         if($page == null){
             return $this->HttpNotFound();
         }
+
+        if($this->IsPost() && !$this->Data->IsEmpty()){
+            $page = $this->Data->DbParse('Page', $this->Models->Page);
+
+            if($this->ModelValidation->Valid()){
+                $page->Save();
+                return $this->Redirect('/Page');
+            }
+        }
+
+        $pages = $this->Models->Page->Where(array('IsDeleted' => 0));
+        $this->Set('Pages', $pages);
 
         return $this->View();
     }
