@@ -1,9 +1,17 @@
 <?php
-class PagesController extends Controller
+require_once('BaseController.php');
+class PagesController extends BaseController
 {
     public function BeforeAction()
     {
-        $pageHierarchi = $this->GetPageHierarchi();
+        $pageHierarchi = $this->GetPageHierarchi()->ToArray();
+
+        if($this->IsLoggedIn()){
+            $adminLinks = $this->GetAdminSidebar();
+
+            $pageHierarchi = array_merge($pageHierarchi, $adminLinks);
+        }
+
         $this->Set('Sidebar', $pageHierarchi);
     }
 

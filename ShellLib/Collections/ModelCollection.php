@@ -170,6 +170,17 @@ class ModelCollection implements ICollection
         throw new Exception("ModelCollection::Copy() not supported");
     }
 
+    public function ToArray()
+    {
+        $result = array();
+
+        foreach($this->All() as $item){
+            $result[] = $result;
+        }
+
+        return $result;
+    }
+
     protected function GetInstance()
     {
         $coreInstanceProperty = new ReflectionProperty(CORE_CLASS, 'Instance');

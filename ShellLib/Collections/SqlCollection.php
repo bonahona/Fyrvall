@@ -148,6 +148,11 @@ class SqlCollection implements IDataCollection
         }
     }
 
+    public function ToArray()
+    {
+        trigger_error('SqlCollection::ToArray() not supported', E_USER_ERROR);
+    }
+
     public function offsetSet($offset, $value)
     {
         trigger_error('Offset set not allowed for SqlCollection', E_USER_ERROR);

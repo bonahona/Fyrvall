@@ -17,6 +17,7 @@ interface IDataCollection extends ICollection, Iterator, Countable, ArrayAccess
     public function First();
     public function Last();
     public function Any($conditions);
+    public function ToArray();
 
     public function offsetSet($offset, $value);
     public function offsetExists($offset);

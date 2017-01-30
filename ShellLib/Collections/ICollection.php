@@ -12,4 +12,5 @@ interface ICollection
     public function First();
     public function Last();
     public function Any($conditions);
+    public function ToArray();
 }
