@@ -119,7 +119,6 @@ class FormHelper
         }else{
             $value = $this->ParseValue($name);
         }
-        var_dump(array($name, $value));
         unset($options['value']);
 
         if($value == 1 || $value == true){
@@ -129,8 +128,7 @@ class FormHelper
 
             $options['attributes']['checked'] = $value;
         }
-
-        var_dump($options);
+        
         $options['type'] = 'checkbox';
         return $this->Input($name, $options);
     }

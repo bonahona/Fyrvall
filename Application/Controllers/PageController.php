@@ -59,7 +59,7 @@ class PageController extends BaseController
         if($page == null){
             return $this->HttpNotFound();
         }
-
+        
         if($this->IsPost() && !$this->Data->IsEmpty()){
             $page = $this->Data->DbParse('Page', $this->Models->Page);
 
@@ -69,10 +69,27 @@ class PageController extends BaseController
             }
         }
 
+        $this->Set('Page', $page);
         $pages = $this->Models->Page->Where(array('IsDeleted' => 0));
         $this->Set('Pages', $pages);
 
         return $this->View();
     }
 
+    public function Content($id = null)
+    {
+        $this->Title = 'Edit page content';
+
+        if($id == null || $id == 0){
+            return $this->HttpNotFound();
+        }
+
+        $page = $this->Models->Page->Find($id);
+        if($page == null){
+            return $this->HttpNotFound();
+        }
+
+        $this->Set('Page', $page);
+        return $this->View();
+    }
 }

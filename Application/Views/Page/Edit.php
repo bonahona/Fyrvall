@@ -40,7 +40,7 @@
             <?php echo $this->Form->Select('ParentPageId', $Pages, array('nullfield' => true, 'attributes' => array('class' => 'form-control')));?>
         </div>
 
-        <?php echo $this->Form->Submit('Create', array('attributes' => array('class' => 'btn btn-md btn-primary')));?>
+        <?php echo $this->Form->Submit('Save', array('attributes' => array('class' => 'btn btn-md btn-primary')));?>
         <?php echo $this->Form->End();?>
     </div>
 </div>
