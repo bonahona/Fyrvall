@@ -36,7 +36,11 @@
 
         <div class="form-group">
             <label>Parent Page</label>
-            <?php echo $this->Form->Select('ParentPageId', $Pages, array('nullfield' => true, 'attributes' => array('class' => 'form-control')));?>
+            <?php echo $this->Form->Select('ParentPageId', $Pages, array(
+                'nullfield' => true,
+                'value' => 'PageTitle',
+                'key' => 'Id',
+                'attributes' => array('class' => 'form-control')));?>
         </div>
 
         <?php echo $this->Form->Submit('Create', array('attributes' => array('class' => 'btn btn-md btn-primary')));?>

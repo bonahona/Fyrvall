@@ -1,18 +1,26 @@
 {
   "Routes": [
     {
-      "/admin/{...}": {
-        "Controller": "User",
-        "Action": "Login",
+      "/": {
+        "Controller": "Pages",
+        "Action": "Index",
         "Variables":{
         }
       }
     },
     {
-      "/pages/{...}":{
-        "Controller": "Page",
-        "Action": "Index",
+      "/pages/{...}": {
+        "Controller": "Pages",
+        "Action": "Page",
         "Variables": "{...}"
+      }
+    },
+    {
+      "/admin/{...}": {
+        "Controller": "User",
+        "Action": "Login",
+        "Variables":{
+        }
       }
     },
     {

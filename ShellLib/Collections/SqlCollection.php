@@ -136,6 +136,18 @@ class SqlCollection implements IDataCollection
         }
     }
 
+    public function Last()
+    {
+        $this->Take(1);
+        $queryCache = $this->GetItems();
+
+        if(count($queryCache) > 0){
+            return $queryCache[count($queryCache) -1];
+        }else{
+            return null;
+        }
+    }
+
     public function offsetSet($offset, $value)
     {
         trigger_error('Offset set not allowed for SqlCollection', E_USER_ERROR);

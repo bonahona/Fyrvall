@@ -13,10 +13,4 @@ class HomeController extends BaseController
         return $this->View();
 
     }
-
-    public function NotFound()
-    {
-        $this->Title = 'Not Found';
-        return $this->View();
-    }
 }

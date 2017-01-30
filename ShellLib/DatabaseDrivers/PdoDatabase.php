@@ -242,6 +242,33 @@ class PdoDatabase implements IDatabaseDriver
         return $result;
     }
 
+    public function Last($modelCollection)
+    {
+        $tableName = $modelCollection->ModelCache['MetaData']['TableName'];
+        $primaryKey = $modelCollection->ModelCache['MetaData']['PrimaryKey'];
+        $columns = array_keys($modelCollection->ModelCache['Columns']);
+
+        $sqlStatement = "SELECT * FROM $tableName order by $primaryKey DESC LIMIT 1";
+        if(!$preparedStatement = $this->Database->prepare($sqlStatement)){
+            echo "Failed to prepare PDO statement";
+            var_dump($this->Database->errorInfo());
+        }
+
+        $preparedStatement->execute();
+        if($preparedStatement->rowCount() == 0){
+            return null;
+        }
+
+        $row = $preparedStatement->fetch();
+        $result = new $modelCollection->ModelName($modelCollection);
+        $result->FlagAsSaved();
+        foreach($columns as $key){
+            $result->$key = $row[$key];
+        }
+
+        return $result;
+    }
+
     public function Any($modelCollection, $conditions, $parameters)
     {
         $tableName = $modelCollection->ModelCache['MetaData']['TableName'];

@@ -1,13 +1,13 @@
 {
   "Application": {
     "DefaultLayout": "Default",
-    "NotFoundController" : "Home",
+    "NotFoundController" : "Pages",
     "NotFoundAction": "NotFound",
     "CapitalizeControllerName": true,
     "CapitalizeActionName": true
   },
   "Debug":{
-    "DieOnRoutingError": true,
+    "DieOnRoutingError": false,
     "DontCacheModels": false
   },
   "Logging": {

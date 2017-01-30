@@ -44,6 +44,7 @@
                     <li><a class="light-grey" href="/User/Logout">Log out</a></li>
                 <?php endif;?>
             </ul>
+            <!--
             <form method="get" action="/Search/Index" class="navbar-form navbar-right">
                 <div class="input-group">
                     <div class="input-group-addon">
@@ -56,6 +57,7 @@
                     <?php endif;?>
                 </div>
             </form>
+            -->
         </div>
     </div>
 </nav>
@@ -66,9 +68,6 @@
             <?php echo $this->PartialView('Sidebar', array('Sidebar' => $Sidebar));?>
         </div>
         <div id="file-container" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <?php if(isset($BreadCrumbs)):?>
-                <?php echo $this->PartialView('Breadcrumbs', array('BreadCrumbs' => $BreadCrumbs));?>
-            <?php endif;?>
             <?php echo $view;?>
 
             <div class="panel">

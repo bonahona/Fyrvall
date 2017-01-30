@@ -4,6 +4,7 @@ class PageController extends BaseController
 {
     public function BeforeAction()
     {
+        parent::BeforeAction();
         $this->Set('Sidebar', $this->GetSideBar());
     }
 
