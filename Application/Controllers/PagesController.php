@@ -17,7 +17,7 @@ class PagesController extends BaseController
 
     private function GetPageHierarchi()
     {
-        $pages = $this->Models->Page->Where(array('IsActive' => 1, 'IsDeleted' => 0));
+        $pages = $this->Models->Page->Where(array('IsActive' => 1, 'IsDeleted' => 0, 'ShowInMenu' => 1));
         $rootPages = $this->GetRootPages($pages);
 
         $associativeArray = array();
