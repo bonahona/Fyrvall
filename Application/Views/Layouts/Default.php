@@ -13,6 +13,7 @@
 
     <?php echo $this->Html->Css('bootstrap.min.css');?>
     <?php echo $this->Html->Css('dashboard.css');?>
+    <?php echo $this->Html->Css('font-awesome.css');?>
 </head>
 
 <body>
