@@ -380,14 +380,8 @@ class PdoDatabase implements IDatabaseDriver
             trigger_error('In PdoDatabase::Insert; Failed to prepare PDO statement: ' . implode(',', $this->Database->errorInfo()), E_USER_ERROR);
         }
 
-        $values = array();
-        foreach($modelCollection->ModelCache['MetaData']['ColumnNames'] as $key){
-
-            $value = $model->$key;
-            $values[] = $value;
-        }
-
-        if(!$preparedStatement->execute($values)){
+        $params = $this->GetParams($modelCollection, $model);
+        if(!$preparedStatement->execute($params)){
             trigger_error('In PdoDatabase::Insert; Failed to prepare PDO statement: ' . implode(',', $this->Database->errorInfo()), E_USER_ERROR);
         }
 
@@ -406,7 +400,6 @@ class PdoDatabase implements IDatabaseDriver
         $tableName = $modelCollection->ModelCache['MetaData']['TableName'];
         $primaryKey = $modelCollection->ModelCache['MetaData']['PrimaryKey'];
         $columns = $modelCollection->ModelCache['MetaData']['ColumnNames'];
-        $columnData = $modelCollection->ModelCache['Columns'];
 
         $values = array();
         foreach($columns as  $column){
@@ -421,6 +414,20 @@ class PdoDatabase implements IDatabaseDriver
             trigger_error('In PdoDatabase::Update; Failed to prepare PDO statement: ' . implode(',', $this->Database->errorInfo()), E_USER_ERROR);
         }
 
+        $params = $this->GetParams($modelCollection, $model);
+
+        $id = $model->$primaryKey;
+        $params[] = $id;
+        if(!$preparedStatement->execute($params)){
+            trigger_error('In PdoDatabase::Update; Failed to prepare PDO statement: ' . implode(',', $this->Database->errorInfo()), E_USER_ERROR);
+        }
+    }
+
+    private function GetParams($modelCollection, $model)
+    {
+        $columnData = $modelCollection->ModelCache['Columns'];
+        $primaryKey = $modelCollection->ModelCache['MetaData']['PrimaryKey'];
+
         $values = array();
         foreach($columnData as $key => $value){
             if($key != $primaryKey) {
@@ -431,8 +438,6 @@ class PdoDatabase implements IDatabaseDriver
             }
         }
 
-        $id = $model->$primaryKey;
-
         $params = array();
         foreach($values as $key => $value){
             if($value['allowNull'] == 'YES' && $value['value'] == '0'){
@@ -442,9 +447,6 @@ class PdoDatabase implements IDatabaseDriver
             }
         }
 
-        $params[] = $id;
-        if(!$preparedStatement->execute($params)){
-            trigger_error('In PdoDatabase::Update; Failed to prepare PDO statement: ' . implode(',', $this->Database->errorInfo()), E_USER_ERROR);
-        }
+        return $params;
     }
 }
