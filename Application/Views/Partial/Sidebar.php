@@ -1,4 +1,4 @@
-<div class="panel panel-defaul">
+<div class="panel panel-default">
     <div class="panel-heading"><a href="/">Startpage</a></div>
     <ul class="list-group">
         <?php foreach($Sidebar as $section):?>
