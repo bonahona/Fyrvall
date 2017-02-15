@@ -4,40 +4,22 @@ class PagesController extends BaseController
 {
     public function BeforeAction()
     {
-        $pageHierarchi = $this->GetPageHierarchi()->ToArray();
+        $pageHierarchi = $this->GetRootPages();
 
         if($this->IsLoggedIn()){
-            $adminLinks = $this->GetAdminSidebar();
-
-            $pageHierarchi = array_merge($pageHierarchi, $adminLinks);
+            foreach($this->GetAdminSidebar() as $adminLink){
+                $pageHierarchi->Add($adminLink);
+            }
         }
 
         $this->Set('Sidebar', $pageHierarchi);
     }
 
-    private function GetPageHierarchi()
+    private function GetRootPages()
     {
-        $pages = $this->Models->Page->Where(array('IsActive' => 1, 'IsDeleted' => 0, 'ShowInMenu' => 1));
-        $rootPages = $this->GetRootPages($pages);
-
-        $associativeArray = array();
-        foreach($pages as $page){
-            $associativeArray[$page->Id] = $page;
-        }
-
-        foreach($associativeArray as $page){
-            if($page->ParentPageId != null && $page->ParentPageId != 0){
-                $associativeArray[$page->ParentPageId]->Pages->Add($page);
-            }
-        }
-
-        return $rootPages;
+        return $this->Models->Page->Where(array('IsActive' => 1, 'IsDeleted' => 0, 'ShowInMenu' => 1, 'ParentPageId' => null));
     }
 
-    private function GetRootPages($pages)
-    {
-        return $pages->Where(array('ShowInMenu' => 1, 'ParentPageId' => null));
-    }
 
     public function Index()
     {

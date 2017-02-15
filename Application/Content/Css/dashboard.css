@@ -192,6 +192,7 @@ ul
 .panel > .list-group .list-group-item
 {
     padding: 5px 15px;
+    border: none;
 }
 
 .dropdown-menu
