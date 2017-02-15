@@ -4,19 +4,23 @@
     </div>
     <ul class="list-group">
         <?php foreach($Sidebar as $page):?>
-            <li class="list-group-item">
-                <?php if(is_array($page)):?>
+            <?php if(is_array($page)):?>
+                <li class="list-group-item">
                     <a href="<?php echo $page['Link'];?>"><?php echo $page['Title'];?></a>
-                <?php else:?>
-                    <a href="<?php echo $page->GetPath();?>"><?php echo $page->PageTitle;?></a>
-                <?php endif;?>
-            </li>
-            <?php if(!is_array($page)):?>
-                <?php foreach($page->Pages as $subPage):?>
-                    <li class="list-group-item indent-left-1">
-                        <a href="<?php echo $subPage->GetPath();?>"><?php echo $subPage->PageTitle;?></a>
+                </li>
+            <?php else:?>
+                <?php if($page->ShowInMenu == 1):?>
+                    <li class="list-group-item">
+                        <a href="<?php echo $page->GetPath();?>"><?php echo $page->PageTitle;?></a>
                     </li>
-                <?php endforeach;?>
+                    <?php foreach($page->Pages as $subPage):?>
+                        <?php if($subPage->ShowInMenu == 1):?>
+                            <li class="list-group-item indent-left-1">
+                                <a href="<?php echo $subPage->GetPath();?>"><?php echo $subPage->PageTitle;?></a>
+                            </li>
+                        <?php endif;?>
+                    <?php endforeach;?>
+                <?php endif;?>
             <?php endif;?>
         <?php endforeach;?>
     </ul>
