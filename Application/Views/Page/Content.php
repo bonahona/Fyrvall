@@ -9,20 +9,20 @@
 </div>
 
 <div class="row">
-    <div class="col-lg-6 margin-top">
+    <div class="col-lg-12 margin-top">
         <?php foreach($Page->PageSegments->Where(array('IsDeleted' => 0))->OrderBy('SortOrder') as $pageSegment):?>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <div class="row">
-                                <div class="col-lg-8">
+                                <div class="col-lg-10">
                                     Segment
                                     <?php if($pageSegment->IsActive == 0):?>
                                         <span class="light-grey">[Inactive]</span>
                                     <?php endif;?>
                                 </div>
-                                <div class="col-lg-4">
+                                <div class="col-lg-2">
                                     <a href="/<?php echo 'Pagesegment/MoveUp/' . $pageSegment->Id;?>" class="btn btn-md btn-default"><span class="glyphicon glyphicon-chevron-up"/></a>
                                     <a href="/<?php echo 'Pagesegment/MoveDown/' . $pageSegment->Id;?>" class="btn btn-md btn-default"><span class="glyphicon glyphicon-chevron-down"/></a>
                                     <?php if($pageSegment->IsActive):?>

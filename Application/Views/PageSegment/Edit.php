@@ -14,6 +14,8 @@
     </div>
 </div>
 
+
+
 <div class="row">
     <div class="col-lg-12">
         <a href="<?php echo '/Page/Content/' . $PageSegment->Page->Id;?>" class="btn btn-md btn-default margin-top">Back</a>
