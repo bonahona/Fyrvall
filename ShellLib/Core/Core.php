@@ -208,7 +208,6 @@ class Core
 
             if (!$this->ReadConfig()) {
                 trigger_error("Failed to read ApplicationConfig", E_USER_ERROR);
-                trigger_error("Failed to read ApplicationConfig", E_USER_ERROR);
             }
 
             $this->PluginPath = '';
