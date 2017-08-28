@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="92cf1494-fbe8-47e2-a887-c39838d67d9d" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ShellLib/Cachers/FileCacheItemPool.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ShellLib/Caching/CacheException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ShellLib/Caching/ICacheItem.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ShellLib/Caching/ICacheItemPool.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ShellLib/Core/Caching.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ShellLib/Core/IOutputCache.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ShellLib/Helpers/ArrayHelper.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ShellLib/Helpers/SqlChainedQueryHelper.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ShellLib/OutputCaches/FileOutputCache.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ShellLib/Utility/ArrayUtilities.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ShellLib/Utility/StringUtilities.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Config/Routes.json" afterPath="$PROJECT_DIR$/Application/Config/Routes.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShellLib/Caching/Caching.php" afterPath="$PROJECT_DIR$/ShellLib/Caching/Caching.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShellLib/Collections/Collection.php" afterPath="$PROJECT_DIR$/ShellLib/Collections/Collection.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShellLib/Collections/ICollection.php" afterPath="$PROJECT_DIR$/ShellLib/Collections/ICollection.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShellLib/Collections/IDataCollection.php" afterPath="$PROJECT_DIR$/ShellLib/Collections/IDataCollection.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShellLib/Collections/ModelCollection.php" afterPath="$PROJECT_DIR$/ShellLib/Collections/ModelCollection.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShellLib/Collections/SqlCollection.php" afterPath="$PROJECT_DIR$/ShellLib/Collections/SqlCollection.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShellLib/Core/Controller.php" afterPath="$PROJECT_DIR$/ShellLib/Core/Controller.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShellLib/Core/Core.php" afterPath="$PROJECT_DIR$/ShellLib/Core/Core.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShellLib/Core/CustomObjectSorter.php" afterPath="$PROJECT_DIR$/ShellLib/Core/CustomObjectSorter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShellLib/Core/DatabaseWhereCondition.php" afterPath="$PROJECT_DIR$/ShellLib/Core/DatabaseWhereCondition.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShellLib/Core/HttpResult.php" afterPath="$PROJECT_DIR$/ShellLib/Core/HttpResult.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShellLib/Core/IDatabaseDriver.php" afterPath="$PROJECT_DIR$/ShellLib/Core/IDatabaseDriver.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShellLib/Core/Model.php" afterPath="$PROJECT_DIR$/ShellLib/Core/Model.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShellLib/Core/Models.php" afterPath="$PROJECT_DIR$/ShellLib/Core/Models.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShellLib/Core/Routing.php" afterPath="$PROJECT_DIR$/ShellLib/Core/Routing.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShellLib/DatabaseDrivers/PdoDatabase.php" afterPath="$PROJECT_DIR$/ShellLib/DatabaseDrivers/PdoDatabase.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShellLib/Helpers/DataHelper.php" afterPath="$PROJECT_DIR$/ShellLib/Helpers/DataHelper.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShellLib/Helpers/FormHelper.php" afterPath="$PROJECT_DIR$/ShellLib/Helpers/FormHelper.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShellLib/Helpers/HtmlHelper.php" afterPath="$PROJECT_DIR$/ShellLib/Helpers/HtmlHelper.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShellLib/Logging/Logging.php" afterPath="$PROJECT_DIR$/ShellLib/Logging/Logging.php" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="Routes.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Application/Config/Routes.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="5" column="8" lean-forward="false" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Application/Config/Routes.json" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="674" />
+    <option name="y" value="-33" />
+    <option name="width" value="2296" />
+    <option name="height" value="2110" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="92cf1494-fbe8-47e2-a887-c39838d67d9d" name="Default" comment="" />
+      <created>1503946327405</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1503946327405</updated>
+      <workItem from="1503946328978" duration="24000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="24000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="674" y="-33" width="2296" height="2110" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24978012" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Application/Config/Routes.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="8" lean-forward="false" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
