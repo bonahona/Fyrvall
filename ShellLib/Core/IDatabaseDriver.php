@@ -7,11 +7,11 @@ interface IDatabaseDriver
     function GetColumnNames($columns, $primaryKey);
     public function Close();
 
+    public function Execute($sqlCollection);
     public function Find($modelCollection, $id);
     public function Exists($modelCollection, $id);
     public function Where($modelCollection, $conditions, $parameters);
     public function First($modelCollection);
-    public function Last($modelCollection);
     public function Any($modelCollection, $conditions, $parameters);
     public function All($modelCollection);
     public function Keys($modelCollection);

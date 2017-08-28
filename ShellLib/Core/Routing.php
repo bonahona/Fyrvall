@@ -1,8 +1,7 @@
 <?php
-
-define('VARIABLE', 0);
-define('VALUE', 1);
-define('ELLIPSIS', 2);
+const VARIABLE = 0;
+const VALUE = 1;
+const ELLIPSIS = 2;
 
 class Routing
 {
@@ -83,22 +82,10 @@ class Routing
         $routeDescription = $this->GetRouteDescription($routeData);
         $variableData = $this->MapPathToVariables($requestInfo, $routePathDescription);
 
-        if($routeDescription['Controller']['Type'] == VALUE){
-            $controllerName = $routeDescription['Controller']['Value'];
-        }else if($routeDescription['Controller']['Type'] == VARIABLE){
-            $controllerName = $this->GetVariableValue($routeDescription['Controller']['Value'], $variableData);
-        }
+        if(isset($routeDescription['Content'])){
+            $type = $type = $routeDescription['Content']['Type'];
 
-        if($routeDescription['Action']['Type'] == VALUE){
-            $actionName = $routeDescription['Action']['Value'];
-        }else if($routeDescription['Action']['Type'] == VARIABLE){
-            $actionName = $this->GetVariableValue($routeDescription['Action']['Value'], $variableData);
-        }
-
-        $variables = array();
-
-        if(isset($routeDescription['Variables']['Type'])) {
-            $type = $type = $routeDescription['Variables']['Type'];
+            $variables = array();
             if ($type == VARIABLE) {
                 $value = $this->GetVariableValue($routeDescription['Variables']['Value'], $variableData);
                 if ($value != "") {
@@ -111,32 +98,72 @@ class Routing
                     $variables[] = $ellipsisVariable;
                 }
             }
-        }else{
-            // This route variable description has multiple entries
-            foreach($routeDescription['Variables'] as $routePathDescriptionVariable){
-                if(isset($routePathDescriptionVariable['Type'])){
-                    $type = $routePathDescriptionVariable['Type'];
-                    if($type == VARIABLE){
-                        $value = $this->GetVariableValue($routePathDescriptionVariable['Value'], $variableData);
+
+            $result = array(
+                'Type' => 'Content',
+                'MethodName' => $_SERVER['REQUEST_METHOD'],
+                'Path' => $variables
+            );
+
+            return $result;
+        }else {
+            if ($routeDescription['Controller']['Type'] == VALUE) {
+                $controllerName = $routeDescription['Controller']['Value'];
+            } else if ($routeDescription['Controller']['Type'] == VARIABLE) {
+                $controllerName = $this->GetVariableValue($routeDescription['Controller']['Value'], $variableData);
+            }
+
+            if ($routeDescription['Action']['Type'] == VALUE) {
+                $actionName = $routeDescription['Action']['Value'];
+            } else if ($routeDescription['Action']['Type'] == VARIABLE) {
+                $actionName = $this->GetVariableValue($routeDescription['Action']['Value'], $variableData);
+            }
+
+            $variables = array();
+
+            if (isset($routeDescription['Variables']['Type'])) {
+                $type = $type = $routeDescription['Variables']['Type'];
+                if ($type == VARIABLE) {
+                    $value = $this->GetVariableValue($routeDescription['Variables']['Value'], $variableData);
+                    if ($value != "") {
                         $variables[] = $value;
-                    }else if($type == VALUE){
-                        $variables[] = $routePathDescriptionVariable['Value'];
-                    }else if($type == ELLIPSIS){
-                        foreach ($variableData['EllipsisVariables'] as $ellipsisVariable) {
-                            $variables[] = $ellipsisVariable;
+                    }
+                } else if ($type == VALUE) {
+                    $variables[] = $routeDescription['Variables']['Value'];
+                } else if ($type == ELLIPSIS) {
+                    foreach ($variableData['EllipsisVariables'] as $ellipsisVariable) {
+                        $variables[] = $ellipsisVariable;
+                    }
+                }
+            } else {
+                // This route variable description has multiple entries
+                foreach ($routeDescription['Variables'] as $routePathDescriptionVariable) {
+                    if (isset($routePathDescriptionVariable['Type'])) {
+                        $type = $routePathDescriptionVariable['Type'];
+                        if ($type == VARIABLE) {
+                            $value = $this->GetVariableValue($routePathDescriptionVariable['Value'], $variableData);
+                            $variables[] = $value;
+                        } else if ($type == VALUE) {
+                            $variables[] = $routePathDescriptionVariable['Value'];
+                        } else if ($type == ELLIPSIS) {
+                            foreach ($variableData['EllipsisVariables'] as $ellipsisVariable) {
+                                $variables[] = $ellipsisVariable;
+                            }
                         }
                     }
                 }
             }
-        }
-        
-        $result = array(
-            'ControllerName' => $controllerName,
-            'ActionName' => $actionName,
-            'Variables' => $variables
-        );
 
-        return $result;
+            $result = array(
+                'Type'=> 'Action',
+                'MethodName' => $_SERVER['REQUEST_METHOD'],
+                'ControllerName' => $controllerName,
+                'ActionName' => $actionName,
+                'Variables' => $variables
+            );
+
+            return $result;
+        }
     }
 
     public function GetRoutePathDescription($routePathParts)
@@ -172,22 +199,27 @@ class Routing
     {
         $result = array();
 
-        if(!isset($routeData['Controller'])){
-            trigger_error('Missing controller setting in route description', E_USER_ERROR);
+        if(isset($routeData['Content'])){
+            $result['Content'] = $this->DescribeRouteSection($routeData['Content'], true);
+            return $result;
+        }else {
+            if (!isset($routeData['Controller'])) {
+                trigger_error('Missing controller setting in route description', E_USER_ERROR);
+            }
+
+            if (!isset($routeData['Action'])) {
+                trigger_error('Missing action setting in route description', E_USER_ERROR);
+            }
+
+            $result['Controller'] = $this->DescribeRouteSection($routeData['Controller'], false);
+            $result['Action'] = $this->DescribeRouteSection($routeData['Action'], false);
+
+            if (isset($routeData['Variables'])) {
+                $result['Variables'] = $this->DescribeRouteSection($routeData['Variables'], true);
+            }
+
+            return $result;
         }
-
-        if(!isset($routeData['Action'])){
-            trigger_error('Missing action setting in route description', E_USER_ERROR);
-        }
-
-        $result['Controller'] = $this->DescribeRouteSection($routeData['Controller'], false);
-        $result['Action'] = $this->DescribeRouteSection($routeData['Action'], false);
-
-        if(isset($routeData['Variables'])){
-            $result['Variables'] = $this->DescribeRouteSection($routeData['Variables'], true);
-        }
-
-        return $result;
     }
 
     public function DescribeRouteSection($routeDataSection, $allowEllipsis)

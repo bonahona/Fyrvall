@@ -1,6 +1,9 @@
 {
   "Routes": [
     {
+      "/Application/Content/{...}":{
+        "Content": "{...}"
+      },
       "/": {
         "Controller": "Pages",
         "Action": "Index",

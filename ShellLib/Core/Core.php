@@ -1,69 +1,43 @@
 <?php
 define('SERVER_ROOT', str_ireplace('/Index.php', '', $_SERVER['PHP_SELF']));
 define('APPLICATION_ROOT',          $_SERVER['DOCUMENT_ROOT']);
-define('APPLICATION_FOLDER',        '/Application');
-define('CONFIG_FOLDER',             '/Config/');
-define('CONTROLLER_FOLDER',         '/Controllers/');
-define('MODELS_FOLDER',             '/Models/');
-define('PLUGINS_FOLDER',            '/Plugins/');
-define('HELPERS_FOLDER',            '/Helpers/');
-define('VIEWS_FOLDER',              '/Views/');
-define('PARTIAL_FOLDER',            '/Views/Partial/');
-define('LAYOUTS_FOLDER',            '/Views/Layouts');
-define('MODEL_CACHE_FOLDER',        '/Application/Temp/Cache/Models/');
-define('VIEW_CACHE_FOLDER',     '/Application/Temp/Cache/Views/');
-define('CSS_FOLDER',                '/Content/Css/');
-define('JS_FOLDER',                 '/Content/Js/');
-define('IMAGE_FOLDER',              '/Content/Images/');
-define('DATABASE_DRIVER_FOLDER',    './ShellLib/DatabaseDrivers/');
-define('LOGGER_FOLDER',             '/Loggers/');
-define('SHELL_LIB_LOGGERS_FOLDER',  '/ShellLib/Loggers/');
-define('OUTPUT_CACHE_FOLDER',       '/OutputCaches/');
-define('SHELL_LIB_OUTPUT_CACHE_FOLDER','/ShellLib/OutputCaches/');
 
-define('VIEW_FILE_ENDING', '.php');
-define('MODEL_CACHE_FILE_ENDING', '.model');
-define('OUTPUT_CACHE_FILE_ENDING', '.output');
-define('PHP_FILE_ENDING', '.php');
-define('CSS_FILE_ENDING', '.css');
-define('JS_FILE_ENDING', '.js');
+const APPLICATION_FOLDER =          '/Application';
+const CONFIG_FOLDER =               '/Config/';
+const CONTROLLER_FOLDER =           '/Controllers/';
+const MODELS_FOLDER =               '/Models/';
+const PLUGINS_FOLDER =              '/Plugins/';
+const HELPERS_FOLDER =              '/Helpers/';
+const VIEWS_FOLDER =                '/Views/';
+const PARTIAL_FOLDER =              '/Views/Partial/';
+const LAYOUTS_FOLDER =              '/Views/Layouts';
+const MODEL_CACHE_FOLDER =          '/Application/Temp/Cache/Models/';
+const VIEW_CACHE_FOLDER =           '/Application/Temp/Cache/Views/';
+const CSS_FOLDER =                  '/Content/Css/';
+const JS_FOLDER =                   '/Content/Js/';
+const IMAGE_FOLDER =                '/Content/Images/';
+const DATABASE_DRIVER_FOLDER =      './ShellLib/DatabaseDrivers/';
+const LOGGER_FOLDER =               '/Loggers/';
+const SHELL_LIB_LOGGERS_FOLDER =    '/ShellLib/Loggers/';
+const SHELL_LIB_CACHE_FOLDER =      './ShellLib/Caching/';
+const SHELL_LIB_OUTPUT_CACHE_FOLDER='/ShellLib/OutputCaches/';
 
-define('CORE_CLASS', 'Core');
+const VIEW_FILE_ENDING =            '.php';
+const MODEL_CACHE_FILE_ENDING =     '.model';
+const OUTPUT_CACHE_FILE_ENDING =    '.output';
+const PHP_FILE_ENDING =             '.php';
+const CSS_FILE_ENDING =             '.css';
+const JS_FILE_ENDING =              '.js';
 
+const CORE_CLASS =                  'Core';
+
+// The only classes always needed are these. The rest are loaded on demand
 require_once('./ShellLib/Core/ConfigParser.php');
-require_once('./ShellLib/Core/Controller.php');
+require_once('./ShellLib/Core/Routing.php');
 require_once('./ShellLib/Core/HttpResult.php');
-require_once('./ShellLib/Core/ModelProxy.php');
-require_once('./ShellLib/Core/ModelProxyCollection.php');
-require_once('./ShellLib/Core/Model.php');
-require_once('./ShellLib/Core/IDatabaseDriver.php');
-require_once('./ShellLib/Core/Models.php');
-require_once('./ShellLib/Core/Helpers.php');
-require_once('./ShellLib/Core/IHelper.php');
-require_once ('./ShellLib/Core/Routing.php');
-require_once('./ShellLib/Core/DatabaseWhereCondition.php');
-require_once('./ShellLib/Core/CustomObjectSorter.php');
-require_once('./ShellLib/Files/File.php');
-require_once('./ShellLib/Logging/Logging.php');
-require_once('./ShellLib/Core/Caching.php');
-require_once('./ShellLib/Helpers/DirectoryHelper.php');
-require_once('./ShellLib/Helpers/ModelHelper.php');
-require_once('./ShellLib/Helpers/UrlHelper.php');
-require_once('./ShellLib/Helpers/ArrayHelper.php');
-require_once('./ShellLib/Helpers/FormHelper.php');
-require_once('./ShellLib/Helpers/ModelValidationHelper.php');
-require_once('./ShellLib/Helpers/DataHelper.php');
-require_once('./ShellLib/Helpers/SessionHelper.php');
-require_once('./ShellLib/Helpers/HtmlHelper.php');
-require_once('./ShellLib/Utility/StringUtilities.php');
-require_once('./ShellLib/Utility/ArrayUtilities.php');
-
-require_once('./ShellLib/Collections/ICollection.php');
-require_once('./ShellLib/Collections/IDataCollection.php');
-require_once('./ShellLib/Collections/Collection.php');
-require_once('./ShellLib/Collections/ModelCollection.php');
-require_once('./ShellLib/Collections/SqlCollection.php');
-
+require_once('./ShellLib/Helpers/CoreHelper.php');
+require_once('./ShellLib/Caching/Caching.php');
+require_once ('./ShellLib/Utility/MimeTypeHelper.php');
 
 // External reference to the core instance
 class Core
@@ -129,10 +103,12 @@ class Core
         return $this->Caching;
     }
 
+    /* @return ModelHelper*/
     public function &GetModelHelper(){
         return $this->ModelHelper;
     }
 
+    /* @return int*/
     public function GetRequestUrl(){
         return $this->RequestUrl;
     }
@@ -219,39 +195,79 @@ class Core
 
     // Creates the core object that is used for the application and any plugins that are included
     // SubPath is used when a plugin is created where the path supplied points out the relative path to the plugin (For model and controller inclusions
+    // Creates the core object that is used for the application and any plugins that are included
+    // SubPath is used when a plugin is created where the path supplied points out the relative path to the plugin (For model and controller inclusions
     function __construct($subPath = null, $primaryCore = null)
     {
-        if($subPath == null){
+        if ($subPath == null) {
             $this->IsPrimaryCore = true;
             self::$Instance = $this;
             $this->PrimaryCore = $this;
 
+            $this->SetupPreRequestFolder();
+
+            if (!$this->ReadConfig()) {
+                trigger_error("Failed to read ApplicationConfig", E_USER_ERROR);
+                trigger_error("Failed to read ApplicationConfig", E_USER_ERROR);
+            }
+
+            $this->PluginPath = '';
+            $this->CreatePlugins();
+            $this->SetupCaching();
+        } else {
+            $this->IsPrimaryCore = false;
+            $this->PluginPath = $subPath;
+            $this->PrimaryCore = $primaryCore;
+
+            $this->SetupPluginConfigFolder();
+        }
+    }
+
+    public function LoadCodeBase()
+    {
+        require_once('./ShellLib/Core/Controller.php');
+        require_once('./ShellLib/Core/ModelProxy.php');
+        require_once('./ShellLib/Core/ModelProxyCollection.php');
+        require_once('./ShellLib/Core/Model.php');
+        require_once('./ShellLib/Core/IDatabaseDriver.php');
+        require_once('./ShellLib/Core/Models.php');
+        require_once('./ShellLib/Core/Helpers.php');
+        require_once('./ShellLib/Core/IHelper.php');
+        require_once('./ShellLib/Core/DatabaseWhereCondition.php');
+        require_once('./ShellLib/Core/CustomObjectSorter.php');
+        require_once('./ShellLib/Files/File.php');
+        require_once('./ShellLib/Logging/Logging.php');
+        require_once('./ShellLib/Helpers/ModelHelper.php');
+        require_once('./ShellLib/Helpers/UrlHelper.php');
+        require_once('./ShellLib/Helpers/FormHelper.php');
+        require_once('./ShellLib/Helpers/ModelValidationHelper.php');
+        require_once('./ShellLib/Helpers/DataHelper.php');
+        require_once('./ShellLib/Helpers/SessionHelper.php');
+        require_once('./ShellLib/Helpers/HtmlHelper.php');
+
+        require_once('./ShellLib/Collections/ICollection.php');
+        require_once('./ShellLib/Collections/IDataCollection.php');
+        require_once('./ShellLib/Collections/Collection.php');
+        require_once('./ShellLib/Collections/ModelCollection.php');
+        require_once('./ShellLib/Collections/SqlCollection.php');
+    }
+
+    function SetupCore($subPath = null, $primaryCore = null)
+    {
+        if($subPath == null){
             $this->ModelCache = array();
             $this->ModelHelper = new ModelHelper();
-
-            $this->SetupFolders();
-
-            if(!$this->ReadConfig()){
-                trigger_error("Failed to read ApplicationConfig", E_USER_ERROR);trigger_error("Failed to read ApplicationConfig", E_USER_ERROR);
-            }
 
             // Logging
             $this->Logging = new Logging();
             $this->FindShellLibLoggers();
             $this->FindLoggers($this->LoggerFolder);
 
-            // Caching
-            $this->Caching = new Caching();
-
             $this->Helpers = new Helpers();
             $this->SetupHelpers();
             $this->SetupLogs();
             $this->SetupDatabase();
             $this->CacheModels();
-
-            $this->PluginPath = '';
-            $this->SetupPlugins();
-
         }else{
             $this->IsPrimaryCore = false;
             $this->PluginPath = $subPath;
@@ -270,12 +286,16 @@ class Core
             $this->Helpers = $primaryCore->GetHelpers();
             $this->SetupHelpers();
         }
+    }
 
-        // We are now sure all models have been loaded and all plugins initialized
-        if($subPath == null) {
-            $this->UpdateModelReferences();
-            $this->SetupModels();
-        }
+    protected  function SetupPreRequestFolder()
+    {
+        $this->ConfigFolder = APPLICATION_FOLDER . CONFIG_FOLDER;
+    }
+
+    protected  function SetupPluginConfigFolder()
+    {
+        $this->ConfigFolder = $this->PluginPath . CONFIG_FOLDER;
     }
 
     protected function SetupFolders()
@@ -343,6 +363,30 @@ class Core
         }
     }
 
+    protected function SetupCaching()
+    {
+        $this->Caching = new Caching();
+
+        foreach($this->ApplicationConfig['Caching'] as $type => $caching){
+
+            $cacheTypeFileName = SHELL_LIB_CACHE_FOLDER . $type . PHP_FILE_ENDING;
+            if(!file_exists($cacheTypeFileName)){
+                trigger_error('Failed to find cache file ' . $cacheTypeFileName, E_USER_ERROR);
+                continue;
+            }
+
+            require_once($cacheTypeFileName);
+            if(!class_exists($type)){
+                trigger_error('Missing output cache class ' . $type);
+                continue;
+            }
+
+            $name = $caching['Name'];
+            $outputCache = new $type($caching);
+            $this->Caching->AddCaching($name, $outputCache);
+        }
+    }
+
     protected function SetupDatabase()
     {
         if(!empty($this->DatabaseConfig)) {
@@ -362,6 +406,34 @@ class Core
                 trigger_error("Unknown database provider type: $databaseType", E_USER_ERROR);
             }
         }
+    }
+
+    protected function CapitalizeActionName()
+    {
+        // Read debug data from the log
+        $capitalizeActionName = false;
+        if($this->ApplicationConfig !== false) {
+            if (array_key_exists('Application', $this->ApplicationConfig)) {
+                if (array_key_exists('CapitalizeActionName', $this->ApplicationConfig['Application'])) {
+                    $capitalizeActionName = $this->ApplicationConfig['Application']['CapitalizeActionName'];
+                }
+            }
+        }
+        return $capitalizeActionName;
+    }
+
+    protected function CapitalizeControllerName()
+    {
+        // Read debug data from the log
+        $capitalizeControllerName = false;
+        if($this->ApplicationConfig !== false) {
+            if (array_key_exists('Application', $this->ApplicationConfig)) {
+                if (array_key_exists('CapitalizeControllerName', $this->ApplicationConfig['Application'])) {
+                    $capitalizeControllerName = $this->ApplicationConfig['Application']['CapitalizeControllerName'];
+                }
+            }
+        }
+        return $capitalizeControllerName;
     }
 
     protected function DebugDontCacheModels()
@@ -440,6 +512,7 @@ class Core
         }
 
         $modelHelper = Core::$Instance->GetModelHelper();
+
         $modelFiles = GetAllFiles($modelCacheFolder);
         foreach($modelFiles as $modelFile){
             $cacheFile = $modelHelper->GetModelFilePath($modelFile);
@@ -453,6 +526,8 @@ class Core
 
     protected function SetupModels()
     {
+        $this->UpdateModelReferences();
+
         $this->Models = new Models();
         $this->Models->Setup($this->ModelCache);
     }
@@ -472,6 +547,13 @@ class Core
                     $this->ModelHelper->SaveModelCache($modelFileName, $modelName, $this->ModelCache[$modelName]);
                 }
             }
+
+            // Write a PhpDocFile
+            require_once('./ShellLib/PhpDocWriter/PhpDocWriter.php');
+            $phpDocWriter = new PhpDocWriter($this->ModelHelper);
+            $phpDocWriter->WritePhpDocForModels($this->ModelCache);
+            $phpDocWriter->WritePhpDocForModelCollections($this->ModelCache);
+
         }
     }
 
@@ -497,6 +579,56 @@ class Core
 
         $routingEngine = new Routing($this->RoutesConfig);
         $requestData = $routingEngine->ParseUrl($requestRoot, $this->RequestUrl);
+
+        if($requestData['Type'] == 'Content'){
+            return $this->ReturnContent($requestData['Path']);
+        }else {
+            // Check if a cache entry is present and if that is so, just return it and don't put up the rest of the application
+            if ($this->Caching->CacheExists()) {
+                $caching = $this->Caching->GetFirstCache();
+
+                $cacheResult = $caching->GetCache($requestData);
+                if ($cacheResult != null) {
+                    $this->DisplayResult($cacheResult);
+                    return;
+                }
+            }
+
+            $this->ReturnNonCachedRequest($requestData);
+        }
+    }
+
+    public function ReturnContent($content)
+    {
+        if(count($content) == 0){
+            // Nothing to fetch
+            die();
+        }
+
+        $path = 'Application/Content/' . implode('/', $content);
+
+        if(!file_exists($path)){
+            die('No such file');
+        }
+
+        $fileContent = file_get_contents($path);
+
+        $result = new HttpResult();
+        $result->Content = $fileContent;
+        $result->ReturnCode = 200;
+        $result->MimeType = GetMimeTypeFromFile($path);
+        $this->DisplayResult($result);
+        die();
+    }
+
+    public function ReturnNonCachedRequest($requestData)
+    {
+        // Now we need to setup the rest of the application
+        $this->LoadCodeBase();
+        $this->SetupFolders();
+        $this->SetupCore('', $this);
+        $this->SetupPlugins();
+        $this->SetupModels();
 
         if($requestData != null) {
             $controllerName = $requestData['ControllerName'];
@@ -534,18 +666,20 @@ class Core
         $this->ParseData($controller);
 
         // Call the action and validate its result
-        $httpResult = $controller->BeforeAction();
-        $controller->SetFromPreviousResult($httpResult);
-
-        // If the return code is not 200, no normal code needs to run now
-        if($httpResult == null || $httpResult->ReturnCode == 200) {
-            $httpResult = call_user_func_array(array($controller, $actionName), $variables);
-
-            if ($httpResult == null) {
-                trigger_error('Called action ' . $controllerName . '->' . $actionName . ' does return null', E_USER_ERROR);
-            } else if (!is_a($httpResult, 'HttpResult')) {
-                trigger_error('Called action ' . $controllerName . '->' . $actionName . ' does not resturn a HttpResult object', E_USER_ERROR);
+        $beforeActionHttpResult = $controller->BeforeAction();
+        if($beforeActionHttpResult != null){
+            if(is_a($beforeActionHttpResult, 'HttpResult')){
+                $this->DisplayResult($beforeActionHttpResult);
+                die();
             }
+        }
+
+        $httpResult = call_user_func_array(array($controller, $actionName), $variables);
+
+        if($httpResult == null){
+            trigger_error('Called action ' . $controllerName . '->' . $actionName . ' does return null', E_USER_ERROR);
+        } else if(!is_a($httpResult, 'HttpResult')){
+            trigger_error('Called action ' . $controllerName . '->' . $actionName . ' does not resturn a HttpResult object', E_USER_ERROR);
         }
 
         // 404 errors use the notFound route specified in the application config
@@ -565,8 +699,19 @@ class Core
 
         $this->DisplayResult($httpResult);
 
+        $this->CacheResult($requestData, $httpResult);
+
         // Clean up
-        $this->Database->Close();
+        if($this->Database != null && $this->Database != false) {
+            $this->Database->Close();
+        }
+    }
+
+    public function CacheResult($request, $httpResult)
+    {
+        if($this->Caching->CacheExists($request)){
+            $this->Caching->GetFirstCache()->CacheOutput($request, $httpResult);
+        }
     }
 
     public  function DisplayResult($httpResult)
@@ -653,7 +798,10 @@ class Core
 
     public function CreateHandler($controllerName, $actionName, $requestData)
     {
-        // Find the controller to use
+        if($this->CapitalizeControllerName()){
+            $controllerName = ucfirst($controllerName);
+        }
+
         $controllerClassName = $controllerName . 'Controller';
         $controllerPath = $this->GetControllerPath($controllerName, $requestData);
 
@@ -677,18 +825,14 @@ class Core
 
         $controller = new $controllerClassName;
 
+        if($this->CapitalizeActionName()){
+            $actionName = ucfirst($actionName);
+        }
+
         if(!method_exists($controller, $actionName)){
             return array(
                 'error' => 1,
                 'message' => 'Called action ' . $actionName . ' does not exists'
-            );
-        }
-
-        $publicMethods = $this->GetDeclaredMethods($controllerClassName);
-        if(!in_array($actionName, $publicMethods)){
-            return array(
-                'error' => 1,
-                'message' => 'Called action is not public is does not exists'
             );
         }
 
@@ -804,7 +948,7 @@ class Core
         }
     }
 
-    public function SetupPlugins()
+    public function CreatePlugins()
     {
         $this->Plugins = array();
         $pluginFolder = Directory(PLUGINS_FOLDER);
@@ -814,6 +958,13 @@ class Core
         foreach(GetAllDirectories($pluginFolder) as $plugin){
             $pluginCore = new Core(PLUGINS_FOLDER . $plugin, $this);
             $this->Plugins[] = $pluginCore;
+        }
+    }
+
+    public function SetupPlugins()
+    {
+        foreach($this->Plugins as $plugin){
+            $plugin->SetupCore($plugin->PluginPath, $this);
         }
     }
 }
