@@ -25,7 +25,7 @@ class DbCreation implements IDatabaseMigration
             ->AddColumn('SortOrder', 'int', array('not null', 'default 0'))
             ->AddColumn('IsActive', 'int(1)', array('not null', 'default 1'))
             ->AddColumn('IsDeleted', 'int(1)', array('not null', 'default 0'))
-            ->AddColumn('ShowInMenu', 'in(1)', array('not null', 'default 1'))
+            ->AddColumn('ShowInMenu', 'int(1)', array('not null', 'default 1'))
             ->AddReference('LocalUser', 'Id', array(), 'CreatedByUserId')
             ->AddReference('Page', 'Id', array('not null'), 'ParentPageId');
 
