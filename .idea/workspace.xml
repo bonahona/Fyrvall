@@ -2,8 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92cf1494-fbe8-47e2-a887-c39838d67d9d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.htaccess" afterPath="$PROJECT_DIR$/.htaccess" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Application/DatabaseMigrations/DbCreation.php" />
+      <change beforePath="$PROJECT_DIR$/.htaccess" afterPath="$PROJECT_DIR$/.htaccess" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Application/Config/DatabaseConfig.json" afterPath="$PROJECT_DIR$/Application/Config/DatabaseConfig.json" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" afterPath="$PROJECT_DIR$/Dockerfile" />
+      <change beforePath="$PROJECT_DIR$/Plugins/ShellAuthConnector/Config/PluginConfig.json" afterPath="$PROJECT_DIR$/Plugins/ShellAuthConnector/Config/PluginConfig.json" />
+      <change beforePath="$PROJECT_DIR$/Plugins/ShellAuthConnector/Helpers/ShellAuthHelper.php" afterPath="$PROJECT_DIR$/Plugins/ShellAuthConnector/Helpers/ShellAuthHelper.php" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Bat/ClearCache.bat" afterPath="$PROJECT_DIR$/Scripts/Bat/ClearCache.bat" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Common/ExportDatabase.php" afterPath="$PROJECT_DIR$/Scripts/Common/ExportDatabase.php" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Common/ImportDatabase.php" afterPath="$PROJECT_DIR$/Scripts/Common/ImportDatabase.php" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Common/MigrateDatabaseCore.php" afterPath="$PROJECT_DIR$/Scripts/Common/MigrateDatabaseCore.php" />
+      <change beforePath="$PROJECT_DIR$/ShellLib/Core/Controller.php" afterPath="$PROJECT_DIR$/ShellLib/Core/Controller.php" />
+      <change beforePath="$PROJECT_DIR$/ShellLib/Core/Core.php" afterPath="$PROJECT_DIR$/ShellLib/Core/Core.php" />
+      <change beforePath="$PROJECT_DIR$/ShellLib/Core/IDatabaseDriver.php" afterPath="$PROJECT_DIR$/ShellLib/Core/IDatabaseDriver.php" />
+      <change beforePath="$PROJECT_DIR$/ShellLib/Core/Model.php" afterPath="$PROJECT_DIR$/ShellLib/Core/Model.php" />
+      <change beforePath="$PROJECT_DIR$/ShellLib/Core/Routing.php" afterPath="$PROJECT_DIR$/ShellLib/Core/Routing.php" />
+      <change beforePath="$PROJECT_DIR$/ShellLib/Core/ScriptCore.php" afterPath="$PROJECT_DIR$/ShellLib/Core/ScriptCore.php" />
+      <change beforePath="$PROJECT_DIR$/ShellLib/DatabaseDrivers/PdoDatabase.php" afterPath="$PROJECT_DIR$/ShellLib/DatabaseDrivers/PdoDatabase.php" />
+      <change beforePath="$PROJECT_DIR$/ShellLib/DatabaseMigration/DatabaseMigrator.php" afterPath="$PROJECT_DIR$/ShellLib/DatabaseMigration/DatabaseMigrator.php" />
+      <change beforePath="$PROJECT_DIR$/ShellLib/DatabaseMigration/IDatabaseMigration.php" afterPath="$PROJECT_DIR$/ShellLib/DatabaseMigration/IDatabaseMigration.php" />
+      <change beforePath="$PROJECT_DIR$/ShellLib/Helpers/CoreHelper.php" afterPath="$PROJECT_DIR$/ShellLib/Helpers/CoreHelper.php" />
+      <change beforePath="$PROJECT_DIR$/ShellLib/Helpers/HtmlHelper.php" afterPath="$PROJECT_DIR$/ShellLib/Helpers/HtmlHelper.php" />
+      <change beforePath="$PROJECT_DIR$/ShellLib/Helpers/ModelHelper.php" afterPath="$PROJECT_DIR$/ShellLib/Helpers/ModelHelper.php" />
+      <change beforePath="$PROJECT_DIR$/ShellLib/PhpDocWriter/PhpDocWriter.php" afterPath="$PROJECT_DIR$/ShellLib/PhpDocWriter/PhpDocWriter.php" />
+      <change beforePath="$PROJECT_DIR$/ShellLib/ShellCms.php" afterPath="$PROJECT_DIR$/ShellLib/ShellCms.php" />
+      <change beforePath="$PROJECT_DIR$/ShellLib/Utility/MimeTypeHelper.php" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -12,65 +36,79 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Routes.json" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Application/Config/Routes.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Core.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ShellLib/Core/Core.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2650">
-              <caret line="602" column="5" lean-forward="true" selection-start-line="602" selection-start-column="5" selection-end-line="602" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Default.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Views/Layouts/Default.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="13" column="29" lean-forward="false" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HtmlHelper.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ShellLib/Helpers/HtmlHelper.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1785">
-              <caret line="114" column="1" lean-forward="false" selection-start-line="114" selection-start-column="1" selection-end-line="114" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ModelHelper.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ShellLib/Helpers/ModelHelper.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="461">
-              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.41564792">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
+          <file leaf-file-name="run.sh" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/run.sh">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="300">
+                  <caret line="12" column="34" lean-forward="true" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="DbCreation.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Application/DatabaseMigrations/DbCreation.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="475">
+                  <caret line="19" column="38" lean-forward="true" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="Page.sql" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Application/Sql/Page.sql">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="325">
+                  <caret line="13" column="2" lean-forward="true" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="PageSegment.sql" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Application/Sql/PageSegment.sql">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="200">
+                  <caret line="8" column="2" lean-forward="false" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="PageOption.sql" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Application/Sql/PageOption.sql">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="100">
+                  <caret line="4" column="2" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>LoadCodeBase</find>
       <find>ReturnNonCachedRequest</find>
+      <find>PageOption</find>
+      <find>BuildTable</find>
+      <find>Creating</find>
+      <find>sql st</find>
+      <find>'\n</find>
+      <find>...</find>
+      <find>&quot;\n</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -82,6 +120,12 @@
         <option value="$PROJECT_DIR$/ShellLib/Helpers/HtmlHelper.php" />
         <option value="$PROJECT_DIR$/ShellLib/Core/Core.php" />
         <option value="$PROJECT_DIR$/Application/Config/Routes.json" />
+        <option value="$PROJECT_DIR$/Plugins/ShellAuthConnector/Config/PluginConfig.json" />
+        <option value="$PROJECT_DIR$/Application/Config/DatabaseConfig.json" />
+        <option value="$PROJECT_DIR$/Application/DatabaseMigrations/DbCreation.php" />
+        <option value="$PROJECT_DIR$/ShellLib/DatabaseDrivers/PdoDatabase.php" />
+        <option value="$PROJECT_DIR$/ShellLib/DatabaseMigration/DatabaseMigrator.php" />
+        <option value="$PROJECT_DIR$/ShellLib/DatabaseMigration/DatabaseTableBuilder.php" />
       </list>
     </option>
   </component>
@@ -92,10 +136,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds">
-    <option name="x" value="1910" />
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="width" value="1940" />
-    <option name="height" value="2110" />
+    <option name="height" value="2100" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -112,14 +155,58 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Fyrvall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Fyrvall" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Fyrvall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Fyrvall" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Application" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Fyrvall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Fyrvall" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Sql" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Fyrvall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Fyrvall" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Plugins" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Fyrvall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Fyrvall" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Plugins" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="ShellAuthConnector" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Fyrvall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Fyrvall" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Plugins" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="ShellAuthConnector" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Sql" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Fyrvall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Fyrvall" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="ShellLib" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scratches" />
-      <pane id="ProjectPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Auth" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -172,9 +259,6 @@
       <PhpTestRunnerSettings />
       <method />
     </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <method />
-    </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
       <command value="run" />
       <scripts />
@@ -195,9 +279,20 @@
       <recursive>false</recursive>
       <method />
     </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+    </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -207,37 +302,59 @@
       <option name="presentableId" value="Default" />
       <updated>1503946327405</updated>
       <workItem from="1503946328978" duration="5602000" />
+      <workItem from="1520936793992" duration="8173000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5602000" />
+    <option name="totallyTimeSpent" value="13775000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1910" y="0" width="1940" height="2110" extended-state="0" />
+    <frame x="-11" y="-11" width="3862" height="2122" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2961418" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14791666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14791666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="processedProjectFiles" value="true" />
+    <option name="version" value="1" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -247,10 +364,18 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ShellLib/Helpers/ModelHelper.php">
+    <entry file="file://$PROJECT_DIR$/Application/Config/Routes.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShellLib/Core/Core.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15050">
+          <caret line="602" column="5" lean-forward="true" selection-start-line="602" selection-start-column="5" selection-end-line="602" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -265,24 +390,178 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ShellLib/Helpers/HtmlHelper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1785">
-          <caret line="114" column="1" lean-forward="false" selection-start-line="114" selection-start-column="1" selection-end-line="114" selection-end-column="1" />
+        <state relative-caret-position="2500">
+          <caret line="100" column="1" lean-forward="false" selection-start-line="100" selection-start-column="1" selection-end-line="100" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShellLib/Helpers/ModelHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShellLib/Helpers/ModelHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Views/Layouts/Default.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" column="29" lean-forward="false" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShellLib/Helpers/HtmlHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2500">
+          <caret line="100" column="1" lean-forward="false" selection-start-line="100" selection-start-column="1" selection-end-line="100" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ShellLib/Core/Core.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2650">
-          <caret line="602" column="5" lean-forward="true" selection-start-line="602" selection-start-column="5" selection-end-line="602" selection-end-column="5" />
+        <state relative-caret-position="15050">
+          <caret line="602" column="5" lean-forward="false" selection-start-line="602" selection-start-column="5" selection-end-line="602" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Config/Routes.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+        <state relative-caret-position="575">
+          <caret line="23" column="7" lean-forward="false" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Plugins/ShellAuthConnector/Config/PluginConfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="6" lean-forward="true" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Config/DatabaseConfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Sql/InitialData.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Plugins/ShellAuthConnector/Sql/LocalUser.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="2" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Sql/Page.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" column="2" lean-forward="true" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="12" column="34" lean-forward="true" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Sql/PageSegment.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="2" lean-forward="false" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Sql/PageOption.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="2" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShellLib/DatabaseDrivers/PdoDatabase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="158" column="36" lean-forward="false" selection-start-line="158" selection-start-column="36" selection-end-line="158" selection-end-column="36" />
+          <folding>
+            <marker date="1520951335389" expanded="true" signature="2928:3112" ph="select TABLE... KEY_COLUMN_USAGE" />
+            <marker date="1520951335389" expanded="true" signature="3996:4076" ph="create table... ${strtolower($databaseTableBuilder-&gt;TableName)}" />
+            <marker date="1520951335389" expanded="true" signature="5214:5332" ph="select count... __migrationhistory" />
+            <marker date="1520951335389" expanded="true" signature="5840:5971" ph="insert into __migrationhistory... " />
+            <marker date="1520951335389" expanded="true" signature="6343:6364" ph="drop table i... " />
+            <marker date="1520951335389" expanded="true" signature="8521:8547" ph="SELECT ${$co... ${$fromStatement}" />
+            <marker date="1520951335389" expanded="true" signature="10193:10237" ph="SELECT * FRO... ${$tableName}" />
+            <marker date="1520951335389" expanded="true" signature="11090:11144" ph="SELECT ${$pr... ${$tableName}" />
+            <marker date="1520951335389" expanded="true" signature="11838:11869" ph="SELECT * FRO... ${$tableName}" />
+            <marker date="1520951335389" expanded="true" signature="12926:12958" ph="SELECT * FRO... ${$tableName}" />
+            <marker date="1520951335389" expanded="true" signature="13791:13852" ph="SELECT count... ${$tableName}" />
+            <marker date="1520951335389" expanded="true" signature="14455:14479" ph="SELECT ${$pr... ${$tableName}" />
+            <marker date="1520951335389" expanded="true" signature="15112:15126" ph="SELECT * FRO... ${$tableName}" />
+            <marker date="1520951335389" expanded="true" signature="16206:16250" ph="DELETE FROM ${$tableName}... " />
+            <marker date="1520951335389" expanded="true" signature="16679:16691" ph="delete from ${$tableName}... " />
+            <marker date="1520951335389" expanded="true" signature="17375:17434" ph="INSERT INTO ${$tableName}... " />
+            <marker date="1520951335389" expanded="true" signature="18790:18839" ph="UPDATE ${$tableName}... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShellLib/DatabaseMigration/DatabaseMigrator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-18">
+          <caret line="74" column="60" lean-forward="false" selection-start-line="74" selection-start-column="60" selection-end-line="74" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShellLib/Core/IDatabaseDriver.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShellLib/DatabaseMigration/DatabaseTableBuilder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/DatabaseMigrations/DbCreation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="19" column="38" lean-forward="true" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
           <folding />
         </state>
       </provider>

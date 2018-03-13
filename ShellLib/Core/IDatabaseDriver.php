@@ -7,6 +7,10 @@ interface IDatabaseDriver
     function GetColumnNames($columns, $primaryKey);
     public function Close();
 
+    public function BuildTable($databaseTableBuilder);
+    public function IsMigrationRun($migrationName, $type);
+    public function NotifyMigrationRun($migrationName, $type);
+    public function DropTable($databaseDropTable);
     public function Execute($sqlCollection);
     public function Find($modelCollection, $id);
     public function Exists($modelCollection, $id);
@@ -19,4 +23,5 @@ interface IDatabaseDriver
     public function Clear($modelCollection);
     public function Insert($modelCollection, &$model);
     public function Update($modelCollection, $model);
+    public function RunSql($sql);
 }

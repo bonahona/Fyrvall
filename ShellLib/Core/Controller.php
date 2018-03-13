@@ -121,6 +121,11 @@ class Controller
         return $this->ViewData;
     }
 
+    public function GetBody()
+    {
+        return file_get_contents('php://input');
+    }
+
     protected function IsPost(){
         return ($this->Verb == "POST");
     }
@@ -268,10 +273,11 @@ class Controller
         return $result;
     }
 
-    protected function HttpStatus($statusCode)
+    protected function HttpStatus($statusCode, $text = "")
     {
         $result = new HttpResult();
         $result->ReturnCode = $statusCode;
+        $result->Content = $text;
 
         return $result;
     }
