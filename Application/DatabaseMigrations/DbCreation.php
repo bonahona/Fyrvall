@@ -26,8 +26,8 @@ class DbCreation implements IDatabaseMigration
             ->AddColumn('IsActive', 'int(1)', array('not null', 'default 1'))
             ->AddColumn('IsDeleted', 'int(1)', array('not null', 'default 0'))
             ->AddColumn('ShowInMenu', 'int(1)', array('not null', 'default 1'))
-            ->AddReference('LocalUser', 'Id', array(), 'CreatedByUserId')
-            ->AddReference('Page', 'Id', array('not null'), 'ParentPageId');
+            ->AddColumn('CreatedByUserId', 'int')
+            ->AddReference('Page', 'Id', array(), 'ParentPageId');
 
         $migrator->CreateTable('PageSegment')
             ->AddPrimaryKey('Id', 'int')
@@ -38,6 +38,7 @@ class DbCreation implements IDatabaseMigration
             ->AddReference('Page', 'Id', array('not null'));
 
         $migrator->CreateTable('PageOption')
+            ->AddPrimaryKey('Id', 'int')
             ->AddColumn('Identifier', 'varchar(128)')
             ->AddColumn('Value', 'varchar(128)');
     }
@@ -49,5 +50,9 @@ class DbCreation implements IDatabaseMigration
 
     public function Seed($migrator)
     {
+        $migrator->Models->PageOption->Create([
+            'Identifier' => 'StartPage',
+            'Value' => '0'
+        ])->Save();
     }
 }

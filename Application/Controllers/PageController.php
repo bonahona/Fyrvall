@@ -4,8 +4,11 @@ class PageController extends BaseController
 {
     public function BeforeAction()
     {
-        parent::BeforeAction();
-        $this->Set('Sidebar', $this->GetSideBar());
+        $this->SetLinks();
+
+        if(!$this->IsLoggedIn()){
+            return $this->Redirect('/admin', ['ref' => $this->RequestUri]);
+        }
     }
 
     public function Index()
@@ -77,6 +80,20 @@ class PageController extends BaseController
 
     public function Content($id = null)
     {
+        $this->EnqueueCssFiles([
+            'bootstrap-wysihtml5-0.0.2.css',
+            'bootstrap.min.css',
+            'dashboard.css',
+            'font-awesome.css'
+        ]);
+
+        $this->EnqueueJavascript([
+            'wysihtml5-0.3.0_rc2.js',
+            'jquery-1.7.1.min.js',
+            'bootstrap.min.js',
+            'bootstrap-wysihtml5-0.0.2.js'
+        ]);
+
         $this->Title = 'Edit page content';
 
         if($id == null || $id == 0){

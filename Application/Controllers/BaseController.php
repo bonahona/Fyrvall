@@ -6,6 +6,12 @@ abstract class BaseController extends Controller
         return $this->GetAdminSidebar();
     }
 
+    public function SetLinks()
+    {
+        $applications = $this->Helpers->ShellAuth->GetApplicationLinks();
+        $this->Set('ApplicationLinks', $applications['data']);
+    }
+
     protected function GetAdminSidebar()
     {
         $result = array();

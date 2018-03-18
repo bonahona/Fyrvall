@@ -6,7 +6,6 @@ class PageoptionController extends BaseController
     public function BeforeAction()
     {
         parent::BeforeAction();
-        $this->Set('Sidebar', $this->GetSideBar());
     }
 
     public function Index()

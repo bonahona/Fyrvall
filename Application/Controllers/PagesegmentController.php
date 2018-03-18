@@ -7,8 +7,6 @@ class PagesegmentController extends BaseController
         if(!$this->IsLoggedIn()){
             return $this->Redirect('/admin', array('ref' => $this->RequestUri));
         }
-
-        $this->Set('Sidebar', $this->GetSideBar());
     }
 
     public function Create($pageId = null)
@@ -17,7 +15,7 @@ class PagesegmentController extends BaseController
             return $this->HttpNotFound();
         }
 
-        $lastPageSegment = $this->Models->PageSegment->All()->OrderBy('SortOrder')->Last();
+        $lastPageSegment = $this->Models->PageSegment->OrderBy('SortOrder')->Last();
 
         if($lastPageSegment == null){
             $sortOrder = 0;
@@ -33,6 +31,19 @@ class PagesegmentController extends BaseController
 
     public function Edit($id = null)
     {
+        $this->EnqueueCssFiles([
+            'bootstrap-wysihtml5-0.0.2.css',
+            'bootstrap.min.css',
+            'dashboard.css',
+            'font-awesome.css'
+        ]);
+
+        $this->EnqueueJavascript([
+            'bootstrap.min.js',
+            'bootstrap-wysiwyg.js',
+            'editor.js'
+        ]);
+
         if($id == null || $id == 0){
             return $this->HttpNotFound();
         }

@@ -1,3 +1,5 @@
+<?php /** @var $this Controller*/?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,9 +13,15 @@
 
     <title><?php echo $title;?></title>
 
-    <?php echo $this->Html->Css('bootstrap.min.css');?>
-    <?php echo $this->Html->Css('dashboard.css');?>
-    <?php echo $this->Html->Css('font-awesome.css');?>
+    <?php if(empty($this->CssFiles)):?>
+        <?php echo $this->Html->Css('bootstrap.min.css');?>
+        <?php echo $this->Html->Css('dashboard.css');?>
+        <?php echo $this->Html->Css('font-awesome.css');?>
+    <?php else:?>
+        <?php foreach($this->CssFiles as $cssFile):?>
+            <?php echo $this->Html->Css($cssFile);?>
+        <?php endforeach;?>
+    <?php endif;?>
 </head>
 
 <body>
@@ -28,11 +36,13 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="navbar-brand"><a href="/">Fyrvall</a></li>
-                        <li class="navbar-brand"><a href="http://assets.fyrvall.com">Assets</a></li>
-                        <li class="navbar-brand"><a href="http://manage.fyrvall.com">Manage</a></li>
-                        <li class="navbar-brand"><a href="http://documentation.fyrvall.com">Documentation</a></li>
-                        <li class="navbar-brand"><a href="http://share.fyrvall.com">Share</a></li>
+                        <?php foreach($ApplicationLinks['PublicApplications'] as $applicationLink):?>
+                            <li class="navbar-brand">
+                                <a href="<?php echo "http://" . $applicationLink['Url'];?>">
+                                    <?php echo $applicationLink['MenuName'];?>
+                                </a>
+                            </li>
+                        <?php endforeach;?>
                     </ul>
                 </li>
             </ul>
@@ -45,20 +55,6 @@
                     <li><a class="light-grey" href="/User/Logout">Log out</a></li>
                 <?php endif;?>
             </ul>
-            <!--
-            <form method="get" action="/Search/Index" class="navbar-form navbar-right">
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <span class="glyphicon glyphicon-search"></span>
-                    </div>
-                    <?php if(isset($SearchQuery)):?>
-                        <input type="text" name="keywords" class="form-control" placeholder="Search..."/ value="<?php echo $SearchQuery;?>">
-                    <?php else:?>
-                        <input type="text" name="keywords" class="form-control" placeholder="Search..."/>
-                    <?php endif;?>
-                </div>
-            </form>
-            -->
         </div>
     </div>
 </nav>
@@ -86,6 +82,12 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<?php echo $this->Html->Js('bootstrap.min.js');?>
+<?php if(empty($this->JavascriptFiles)):?>
+    <?php echo $this->Html->Js('bootstrap.min.js');?>
+<?php else:?>
+    <?php foreach($this->JavascriptFiles as $javascriptFile):?>
+        <?php echo $this->Html->Js($javascriptFile);?>
+    <?php endforeach;?>
+<?php endif;?>
 </body>
 </html>

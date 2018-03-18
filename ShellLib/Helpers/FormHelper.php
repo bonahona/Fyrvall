@@ -149,7 +149,7 @@ class FormHelper
     }
     public function Select($name, $list, $options = null)
     {
-        if(!is_array($list) && !$list instanceof Collection){
+        if(!is_array($list) && !$list instanceof Collection && !$list instanceof SqlCollection){
             trigger_error("List $name is not an array nor Collection", E_USER_WARNING);
         }
 
@@ -205,6 +205,18 @@ class FormHelper
                 }
             }
         }else if($list instanceof Collection){
+            foreach($list as $item) {
+                $itemKey = $item->$keyIndex;
+                $itemValue = $item->$valueIndex;
+
+                if ($itemKey == $value) {
+                    $result .= "<option value=\"$itemKey\" selected=\"\">$itemValue</option>\n";
+                }else{
+                    $result .= "<option value=\"$itemKey\" >$itemValue</option>\n";
+                }
+            }
+        }else if($list instanceof SqlCollection){
+            $list->FetchData();
             foreach($list as $item) {
                 $itemKey = $item->$keyIndex;
                 $itemValue = $item->$valueIndex;

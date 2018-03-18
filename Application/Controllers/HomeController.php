@@ -4,7 +4,7 @@ class HomeController extends BaseController
 {
     public function BeforeAction()
     {
-        $this->Set('Sidebar', $this->GetSideBar());
+        $this->SetLinks();
     }
 
     public function Index()

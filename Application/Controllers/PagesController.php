@@ -4,6 +4,7 @@ class PagesController extends BaseController
 {
     public function BeforeAction()
     {
+        $this->SetLinks();
         $pageHierarchi = $this->GetRootPages();
 
         if($this->IsLoggedIn()){
@@ -17,7 +18,7 @@ class PagesController extends BaseController
 
     private function GetRootPages()
     {
-        return $this->Models->Page->Where(array('IsActive' => 1, 'IsDeleted' => 0, 'ShowInMenu' => 1, 'ParentPageId' => null));
+        return $this->Models->Page->Where(array('IsActive' => 1, 'IsDeleted' => 0, 'ShowInMenu' => 1, 'ParentPageId' => null))->FetchData();
     }
 
 
