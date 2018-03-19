@@ -1,1 +1,3 @@
-$('#editor').wysiwyg();
+$('document').ready(function(){
+    $('#editor').wysiwyg();
+});

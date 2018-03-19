@@ -1,6 +1,12 @@
 <?php
 abstract class BaseController extends Controller
 {
+    public function BeforeAction()
+    {
+        $this->SetLinks();
+        parent::BeforeAction();
+    }
+
     protected function GetSideBar()
     {
         return $this->GetAdminSidebar();
