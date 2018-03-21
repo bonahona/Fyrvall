@@ -80,10 +80,15 @@ class FormHelper
 
         if($type == 'select'){
             return $this->Select();
-        }else{
-            $result = "<input name=\"$name\" id=\"$id\" value=\"$value\" type=\"$type\" $attributes/>";
-            return $result;
         }
+
+        $result = "";
+        if($type == 'checkbox'){
+            $result .= "<input name=\"$name\" value=\"0\" type=\"hidden\"/>";
+        }
+
+        $result .="<input name=\"$name\" id=\"$id\" value=\"$value\" type=\"$type\" $attributes/>";
+        return $result;
     }
 
     public function IndexedInput($name, $index, $options = null)
@@ -114,6 +119,7 @@ class FormHelper
         }
 
         $options['type'] = 'checkbox';
+
         return $this->Input($name, $options);
     }
 
