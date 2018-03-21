@@ -66,7 +66,7 @@ class PageController extends BaseController
         
         if($this->IsPost() && !$this->Data->IsEmpty()){
             $page = $this->Data->DbParse('Page', $this->Models->Page);
-
+            
             $page->Save();
             return $this->Redirect('/Page');
         }

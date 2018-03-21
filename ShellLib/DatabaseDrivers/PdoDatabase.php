@@ -298,8 +298,7 @@ class PdoDatabase implements IDatabaseDriver
         if($sqlCollection->OrderByCondition != null){
             $order = $sqlCollection->OrderByCondition['Order'];
 
-            $sqlStatement .= " ORDER BY ? $order";
-            $parameters[] = $sqlCollection->OrderByCondition['Field'];
+            $sqlStatement .= " ORDER BY " . $sqlCollection->OrderByCondition['Field']. " " . $order;
         }
 
         $limit = array('use' => false,'skip' => 0, 'take' => 0);
