@@ -7,7 +7,7 @@
         <?php echo $this->Form->Start('PageSegment');?>
         <?php echo $this->Form->Hidden('Id');?>
         <div class="form-group">
-            <?php echo $this->Form->Area('Content', array('attributes' => array('class' => 'form-control', 'rows' => '30')));?>
+            <?php echo $this->Form->Area('Content', array('attributes' => array('class' => 'form-control summernote', 'rows' => '30')));?>
         </div>
         <?php echo $this->Form->Submit('Save', array('attributes' => array('class' => 'btn btn-md btn-primary')));?>
         <?php echo $this->Form->End();?>

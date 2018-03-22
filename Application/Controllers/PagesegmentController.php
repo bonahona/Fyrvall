@@ -32,7 +32,7 @@ class PagesegmentController extends BaseController
     public function Edit($id = null)
     {
         $this->EnqueueCssFiles([
-            'bootstrap-wysihtml5-0.0.2.css',
+            'summernote.css',
             'bootstrap.min.css',
             'dashboard.css',
             'font-awesome.css'
@@ -40,7 +40,7 @@ class PagesegmentController extends BaseController
 
         $this->EnqueueJavascript([
             'bootstrap.min.js',
-            'bootstrap-wysiwyg.js',
+            'summernote.min.js',
             'editor.js'
         ]);
 
